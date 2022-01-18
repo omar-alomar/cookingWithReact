@@ -11,7 +11,7 @@ const LOCAL_STORAGE_KEY = 'cookingWithReact.recipes'
 function App() {
   const [selectedRecipeId, setSelectedRecipeId] = useState();
   const [recipes, setRecipes] = useState(sampleRecipes)
-  const [searchTerm, setSearchTerm] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
   const selectedRecipe = recipes.find(recipe => recipe.id === selectedRecipeId)
 
   useEffect(()=> {
@@ -34,7 +34,6 @@ function App() {
 
   function handleRecipeSearch(searchInput) {
       setSearchTerm(prevSearchTerm => searchInput)
-      setRecipes(recipes.filter(r => r.name.toLowerCase().includes(searchTerm.toLowerCase())))
   }
 
   function handleRecipeSelect(id) {
