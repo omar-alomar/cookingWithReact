@@ -1,0 +1,14 @@
+.search-bar-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: ". search-bar .";
+  margin: 25px;
+}
+
+.search-bar {
+  grid-area: search-bar;
+  padding: 10px;
+}

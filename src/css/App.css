@@ -1,0 +1,27 @@
+@import-normalize;
+@import "RecipeList.css";
+@import "buttons.css";
+@import "recipe.css";
+@import "ingredientList.css";
+@import "recipeEdit.css";
+@import "searchBar.css";
+
+*,
+*::before,
+*::after {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 25px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.mr-1 {
+  margin-right: 5px;
+}
