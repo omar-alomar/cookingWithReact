@@ -1,6 +1,6 @@
 .recipe-edit {
   padding: 30px;
-  padding-top: 70px;
+  padding-top: 200px;
   position: relative;
 }
 
@@ -8,7 +8,7 @@
   position: absolute;
   margin: 10px;
   left: 50%;
-  bottom: 700px;
+  bottom: 600px;
 }
 
 .recipe-edit__remove-button-container {

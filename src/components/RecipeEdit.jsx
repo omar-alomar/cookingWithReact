@@ -2,10 +2,33 @@ import React, { useContext } from 'react'
 import RecipeIngredientEdit from './RecipeIngredientEdit'
 import { RecipeContext } from './App'
 import { v4 as uuidv4 } from 'uuid'
+import RecipeCreatorEdit from './RecipeCreatorEdit'
 
 
 export default function RecipeEdit({ recipe }) {
     const { handleRecipeChange, handleRecipeSelect } = useContext(RecipeContext)
+
+    function handleCreatorAdd() {
+        const newCreator = {
+            id: uuidv4(),
+            firstName: '',
+            lastName: '',
+        }
+        handleChange({ creators: [...recipe.creators, newCreator]})
+    }
+
+    function handleCreatorDelete(id) {
+        handleChange({ creators: recipe.creators.filter(c => c.id !== id)})
+    }
+
+    function handleCreatorChange(id, creator) {
+        const newCreators = [...recipe.creators] // All current recipe creators
+        const index = newCreators.findIndex(c => c.id === id) // Index of creator to be modified
+        newCreators[index] = creator // Modifying creator
+        handleChange({ creators: newCreators }) // passing modified creators
+    }
+
+
 
     function handleChange(changes) {
         handleRecipeChange(recipe.id, {...recipe, ...changes})
@@ -69,7 +92,24 @@ export default function RecipeEdit({ recipe }) {
                     <div className="recipe-edit__add-ingredient-btn-container">
                         <button className="btn btn--primary" onClick={() => handleIngredientAdd()}>Add Ingredient</button>
                     </div>
-                </div>
+                    <label className="recipe-edit__label">Creators</label>
+                    <div className="recipe-edit__ingredient-grid">
+                        <div>First Name:</div>
+                        <div>Last Name:</div>
+                        <div></div>
+                            {recipe.creators.map(creator => (
+                              <RecipeCreatorEdit 
+                                key={creator.id}
+                                creator={creator}
+                                handleCreatorDelete={handleCreatorDelete}
+                                handleCreatorChange={handleCreatorChange}
+                              />  
+                            ))}
+                    </div>
+                    <div className="recipe-edit__add-ingredient-btn-container">
+                        <button className="btn btn--primary" onClick={() => handleCreatorAdd()}>Add Creator</button>
+                    </div>
+            </div>
         </div>
     )
 }

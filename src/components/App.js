@@ -49,6 +49,9 @@ function App() {
       instructions: '',
       ingredients: [
         {id: uuidv4(), name: 'Name', amount: '1tbs'}
+      ],
+      creators: [
+        {id: uuidv4(), firstName: 'fname', lastName: 'lname'}
       ]
     }
     setSelectedRecipeId(newRecipe.id)
@@ -100,6 +103,18 @@ const sampleRecipes = [
           name: 'Salt',
           amount: '1 tbs'
         }
+      ],
+      creators: [
+        {
+          id: 1,
+          firstName: 'John',
+          lastName: 'Cena'
+        },
+        {
+          id: 2,
+          firstName: 'Mary',
+          lastName: 'Smith'
+        }
       ]
   },
   {
@@ -118,6 +133,13 @@ const sampleRecipes = [
           id: 2,
           name: 'Paprika',
           amount: '2 tbs'
+        }
+      ],
+      creators: [
+        {
+          id: 1,
+          firstName: 'Lionel',
+          lastName: 'Messi'
         }
       ]
   }

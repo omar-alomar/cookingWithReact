@@ -13,7 +13,9 @@ export default function RecipeList( { recipes, searchTerm }) {
     function displayRecipes(recipes) {
         return (
             recipes.map(recipe => { 
-                if (recipe.name.toLowerCase().includes(searchTerm.toLowerCase())) return <Recipe key={recipe.id} {...recipe} /> })
+                if (recipe.name.toLowerCase().includes(searchTerm.toLowerCase())) 
+                    return <Recipe key={recipe.id} {...recipe} />
+            })
         )
     }
     return (
@@ -30,8 +32,7 @@ export default function RecipeList( { recipes, searchTerm }) {
                 <button
                 className="btn btn--primary"
                 onClick={handleRecipeAdd}
-                >
-                    Add Recipe</button>
+                >Add Recipe</button>
             </div>
         </div>
         </>
